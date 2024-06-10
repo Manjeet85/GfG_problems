@@ -5,26 +5,23 @@
 using namespace std;
 
 
-
-
 // } Driver Code Ends
 // User function template for C++
-
-class Solution{
+class Solution {
   public:
-    int missingNumber(vector<int>& array, int n) {
+
+    // Note that the size of the array is n-1
+    int missingNumber(int n, vector<int>& arr) {
+
         // Your code goes here
+        int total = n*(n+1)/2;
         int sum = 0;
         for(int i = 0; i < n-1; i++)
+        {
+            sum +=arr[i];
+        }
         
-            sum += array[i];
-            
-        
-        int count = n*(n+1)/2;
-        
-        return count-sum;
-        
-        
+        return total-sum;
     }
 };
 
@@ -37,10 +34,11 @@ int main() {
         int n;
         cin >> n;
 
-        vector<int> array(n - 1);
-        for (int i = 0; i < n - 1; ++i) cin >> array[i];
+        vector<int> arr(n - 1);
+        for (int i = 0; i < n - 1; ++i)
+            cin >> arr[i];
         Solution obj;
-        cout << obj.missingNumber(array, n) << "\n";
+        cout << obj.missingNumber(n, arr) << "\n";
     }
     return 0;
 }
