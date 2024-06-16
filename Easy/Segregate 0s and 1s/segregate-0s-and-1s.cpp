@@ -10,15 +10,28 @@ using namespace std;
 class Solution{   
 public:
     void segregate0and1(int arr[], int n) {
+        // code here
         int i = 0, j = n-1;
-        while(i < j){
-            if(arr[i] == 0 && i < j) i++;
-            else if(arr[j] == 1 && i < j) j--;
-            else if(i < j) swap(arr[i],arr[j]);
-
-        }
         
-      
+        while(i < j)
+        {
+            if(arr[i] == 0)
+            {
+                i++;
+            }
+            else{
+                if(arr[j] == 0)
+                {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                    i++,j--;
+                }
+                else{
+                    j--;
+                }
+            }
+        }
     }
 };
 
